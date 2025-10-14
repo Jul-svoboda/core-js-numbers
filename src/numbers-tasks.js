@@ -259,8 +259,22 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index === 1 || index === 2) {
+    return 1;
+  }
+  if (index === 0) {
+    return 0;
+  }
+  let beforeMagnification;
+  let answer = 1;
+  let afterMagnification = 1;
+  for (let i = 1; i <= index - 2; i += 1) {
+    beforeMagnification = answer;
+    answer = beforeMagnification + afterMagnification;
+    afterMagnification = beforeMagnification;
+  }
+  return answer;
 }
 
 /**
